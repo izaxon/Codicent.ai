@@ -4,6 +4,7 @@
 <head>
    <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="color-scheme" content="dark" />
    <title>Codicent — AI that knows your business</title>
    <meta name="description"
       content="Codicent is the memory and mind of your organization — one place where everything you know becomes something AI can act on, with you, in real time." />
@@ -38,16 +39,21 @@
             radial-gradient(circle at 8% 8%, rgba(124, 58, 237, 0.20), transparent 50%),
             radial-gradient(circle at 92% 15%, rgba(240, 165, 0, 0.10), transparent 45%),
             radial-gradient(circle at 50% 92%, rgba(124, 58, 237, 0.10), transparent 55%),
-           ;
-         color:;
+            #020205;
+         color: #e8ecf7;
          min-height: 100vh;
       }
 
+      :root {
+         color-scheme: dark;
+      }
+
       .soft-gradient-text {
-         background: linear-gradient(120deg, 0%, 45%, 100%);
+         background: linear-gradient(120deg, #fff 0%, #c4b5fd 45%, #fcd34d 100%);
          -webkit-background-clip: text;
          background-clip: text;
          color: transparent;
+         -webkit-text-fill-color: transparent;
       }
 
       .glass {
@@ -134,7 +140,7 @@
             </p>
 
             <div class="mt-10 flex flex-col sm:flex-row gap-4">
-               <a href="mailto:info@codicent.com"
+               <a href="mailto:hello@codicent.com"
                   class="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold shadow-lg shadow-accent/40 hover:shadow-xl hover:-translate-y-0.5 transition">Get
                   in touch</a>
                <a href="https://codicent.com"
