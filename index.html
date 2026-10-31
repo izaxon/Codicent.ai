@@ -4,7 +4,8 @@
 <head>
    <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <meta name="color-scheme" content="dark" />
+   <meta name="color-scheme" content="light dark" />
+   <meta name="theme-color" content="#FFFFFF" />
    <title>Codicent — AI that knows your business</title>
    <meta name="description"
       content="Codicent is the memory and mind of your organization — one place where everything you know becomes something AI can act on, with you, in real time." />
@@ -15,41 +16,88 @@
          theme: {
             extend: {
                colors: {
-                  codicent: "#1A0D3A",
-                  accent: "#7C3AED",
-                  gold: "#F0A500",
-                  midnight: "#020205",
-                  dusk: "#0A0618",
+                  codicent: "var(--cc-surface)",
+                  accent: "var(--cc-accent)",
+                  gold: "var(--cc-muted)",
+                  midnight: "var(--cc-canvas)",
+                  dusk: "var(--cc-surface)",
+                  ink: "var(--cc-ink)",
+                  ink2: "var(--cc-ink-2)",
+                  mute: "var(--cc-muted)",
+                  brand: "var(--cc-brand)",
+                  onaccent: "var(--cc-on-accent)",
                },
                fontFamily: {
-                  display: ['"Poppins"', "system-ui", "sans-serif"],
-                  body: ['"Inter"', "system-ui", "sans-serif"],
+                  display: ['Geist', "Inter", "system-ui", "sans-serif"],
+                  body: ['Geist', "Inter", "system-ui", "sans-serif"],
+                  mono: ['"Geist Mono"', "ui-monospace", "monospace"],
                },
             },
          },
       };
    </script>
    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
       rel="stylesheet" />
    <style>
       body {
-         font-family: "Inter", system-ui, sans-serif;
-         background:
-            radial-gradient(circle at 8% 8%, rgba(124, 58, 237, 0.20), transparent 50%),
-            radial-gradient(circle at 92% 15%, rgba(240, 165, 0, 0.10), transparent 45%),
-            radial-gradient(circle at 50% 92%, rgba(124, 58, 237, 0.10), transparent 55%),
-            #020205;
-         color: #e8ecf7;
+         font-family: var(--cc-font);
+         background: var(--cc-canvas);
+         color: var(--cc-ink);
          min-height: 100vh;
       }
 
-      :root {
-         color-scheme: dark;
+      /* @codicent-web-tokens:start */
+      :root{
+        --cc-canvas:#FFFFFF;          /* page ground */
+        --cc-surface:#F4F6F8;         /* tiles, code panels, strips */
+        --cc-surface-2:#E9EDF1;       /* raised / hover surface */
+        --cc-ink:#0A0A0A;             /* primary text, headlines */
+        --cc-ink-2:#3D3D3D;           /* secondary text */
+        --cc-muted:#737373;           /* captions, labels */
+        --cc-dim:#A3A3A3;             /* hairline text, disabled */
+        --cc-line:rgba(0,0,0,.08);    /* rules, table lines */
+        --cc-hairline:rgba(0,0,0,.05);
+        --cc-accent:#0178D4;          /* Codicent blue — primary button, headline highlight, active state */
+        --cc-accent-2:#0196FA;        /* hover / bright */
+        --cc-accent-soft:rgba(1,120,212,.08);
+        --cc-brand:#0196FA;           /* the logo mark, always */
+        --cc-link:#0178D4;            /* text links */
+        --cc-on-accent:#FFFFFF;       /* text on a blue tile */
+        --cc-ink-rgb:10,10,10;        /* for overlays authored as rgba(var(--cc-ink-rgb),.1) */
+        --cc-canvas-rgb:255,255,255;
+        --cc-glow:none;               /* no gradients, no glows */
+        --cc-font:Geist,Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+        --cc-mono:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+        --cc-radius:0px;              /* square means Codicent */
+        --cc-radius-sm:0px;
+        --cc-measure:1160px;
+        --cc-shadow:none;
+        color-scheme:light dark;
       }
+      @media (prefers-color-scheme:dark){
+        :root{
+          --cc-canvas:#000000;
+          --cc-surface:#111111;
+          --cc-surface-2:#1C1C1C;
+          --cc-ink:#F5F5F5;
+          --cc-ink-2:#BDBDBD;
+          --cc-muted:#8A8A8A;
+          --cc-dim:#5A5A5A;
+          --cc-line:rgba(255,255,255,.12);
+          --cc-hairline:rgba(255,255,255,.07);
+          --cc-accent:#0196FA;
+          --cc-accent-2:#4DB1FF;
+          --cc-accent-soft:rgba(1,150,250,.16);
+          --cc-link:#4DB1FF;
+          --cc-ink-rgb:245,245,245;
+          --cc-canvas-rgb:0,0,0;
+        }
+      }
+      /* @codicent-web-tokens:end */
 
       .soft-gradient-text {
-         background: linear-gradient(120deg, #fff 0%, #c4b5fd 45%, #fcd34d 100%);
+         background: linear-gradient(120deg, var(--cc-ink) 0%, var(--cc-accent) 100%);
          -webkit-background-clip: text;
          background-clip: text;
          color: transparent;
@@ -59,13 +107,13 @@
       .glass {
          -webkit-backdrop-filter: blur(12px);
          backdrop-filter: blur(12px);
-         background: rgba(10, 6, 24, 0.65);
-         border: 1px solid rgba(124, 58, 237, 0.20);
+         background: var(--cc-surface);
+         border: 0;
       }
    </style>
 </head>
 
-<body class="bg-midnight text-slate-100">
+<body class="bg-midnight text-ink">
 
    <div class="relative min-h-screen flex flex-col">
 
@@ -73,16 +121,14 @@
       <header class="max-w-5xl w-full mx-auto px-6 pt-10">
          <nav class="flex items-center justify-between">
             <a href="/" class="flex items-center gap-3">
-               <div
-                  class="w-11 h-11 rounded-2xl bg-gradient-to-br from-accent to-gold flex items-center justify-center text-lg font-bold text-midnight">
-                  C</div>
+               <div class="w-11 h-11 flex items-center justify-center text-brand"><svg viewBox="0 0 43 43" width="26" height="26" aria-hidden="true" fill="currentColor"><path d="M14.3333 38.2227H4.77778V43.0004H14.3333V38.2227Z"/><path d="M38.2222 0H28.6667V4.77778H38.2222V0Z"/><path d="M38.2222 19.1113H28.6667V23.8891H38.2222V19.1113Z"/><path d="M14.3333 19.1113H4.77778V23.8891H14.3333V19.1113Z"/><path d="M4.77778 23.8887H0V38.222H4.77778V23.8887Z"/><path d="M43 4.77783H38.2222V19.1112H43V4.77783Z"/><path d="M23.8889 19.1113H19.1111V33.4447H23.8889V19.1113Z"/><path d="M23.8889 9.55566H19.1111V14.3334H23.8889V9.55566Z"/></svg></div>
                <div>
-                  <p class="text-[11px] uppercase tracking-[0.4em] text-slate-400">Codicent</p>
-                  <p class="text-base font-semibold">codicent.ai</p>
+                  <p class="text-[12px] lowercase tracking-normal text-mute">Codicent</p>
+                  <p class="text-base font-medium">codicent.ai</p>
                </div>
             </a>
             <a href="mailto:hello@codicent.com"
-               class="inline-flex px-5 py-2 rounded-full bg-accent text-white text-sm font-semibold shadow-lg shadow-accent/35 hover:shadow-xl hover:-translate-y-0.5 transition">Talk
+               class="inline-flex px-5 py-2 rounded-none bg-accent text-onaccent text-sm font-medium hover:bg-[var(--cc-accent-2)] transition">Talk
                to us</a>
          </nav>
       </header>
@@ -92,59 +138,59 @@
          <div class="max-w-3xl mx-auto px-6 py-20 md:py-28">
 
             <span
-               class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-[11px] uppercase tracking-[0.45em] text-slate-300">Mission</span>
+               class="inline-flex items-center gap-2 rounded-none border border-[rgba(var(--cc-ink-rgb),.10)] bg-[rgba(var(--cc-ink-rgb),.05)] px-4 py-1 text-[13px] lowercase tracking-normal text-mute">Mission</span>
 
-            <h1 class="mt-6 text-4xl md:text-6xl font-display font-semibold leading-[1.05] text-white">
+            <h1 class="mt-6 text-4xl md:text-6xl font-display font-medium leading-[1.02] tracking-tight text-ink">
                <span class="soft-gradient-text">AI that knows</span><br />your business.
             </h1>
 
-            <p class="mt-8 text-lg md:text-xl text-slate-300 leading-relaxed">
+            <p class="mt-8 text-lg md:text-xl text-ink2 leading-relaxed">
                Every organization carries an enormous, invisible memory — conversations, decisions,
                documents, customers, lessons learned. Most of it is scattered across systems,
                inboxes and people's heads, just out of reach when it matters most.
             </p>
 
-            <p class="mt-5 text-lg md:text-xl text-slate-300 leading-relaxed">
-               <strong class="text-white">Codicent gathers it all in one living place</strong> — and
+            <p class="mt-5 text-lg md:text-xl text-ink2 leading-relaxed">
+               <strong class="text-ink">Codicent gathers it all in one living place</strong> — and
                places an AI right next to you, one that actually understands your work because it
                has lived through it with you.
             </p>
 
-            <p class="mt-5 text-lg md:text-xl text-slate-300 leading-relaxed">
-               Our mission is simple: give every team an AI that <em class="text-white not-italic font-semibold">knows
+            <p class="mt-5 text-lg md:text-xl text-ink2 leading-relaxed">
+               Our mission is simple: give every team an AI that <em class="text-ink not-italic font-medium">knows
                   what you know</em>, remembers what you've done, and helps you do the next thing better.
             </p>
 
             <!-- Why / Gains -->
             <div class="mt-14 grid sm:grid-cols-3 gap-5">
-               <div class="glass rounded-2xl p-5">
-                  <p class="text-3xl font-display font-semibold text-white">One&nbsp;place</p>
-                  <p class="mt-2 text-sm text-slate-300">Instead of seven systems and a dozen tabs — your work, your
+               <div class="glass rounded-none p-5">
+                  <p class="text-3xl font-display font-medium text-ink">One&nbsp;place</p>
+                  <p class="mt-2 text-sm text-ink2">Instead of seven systems and a dozen tabs — your work, your
                      data and your AI in a single flow.</p>
                </div>
-               <div class="glass rounded-2xl p-5">
-                  <p class="text-3xl font-display font-semibold text-white">Real&nbsp;memory</p>
-                  <p class="mt-2 text-sm text-slate-300">Nothing gets lost. Every note, message and decision becomes
+               <div class="glass rounded-none p-5">
+                  <p class="text-3xl font-display font-medium text-ink">Real&nbsp;memory</p>
+                  <p class="mt-2 text-sm text-ink2">Nothing gets lost. Every note, message and decision becomes
                      part of an organization that finally remembers.</p>
                </div>
-               <div class="glass rounded-2xl p-5">
-                  <p class="text-3xl font-display font-semibold text-white">More&nbsp;done</p>
-                  <p class="mt-2 text-sm text-slate-300">Less searching, less retyping, less repeating yourself. More
+               <div class="glass rounded-none p-5">
+                  <p class="text-3xl font-display font-medium text-ink">More&nbsp;done</p>
+                  <p class="mt-2 text-sm text-ink2">Less searching, less retyping, less repeating yourself. More
                      time for the work only humans can do.</p>
                </div>
             </div>
 
-            <p class="mt-14 text-base text-slate-400">
+            <p class="mt-14 text-base text-mute">
                Codicent is built for teams that believe their knowledge is their advantage — and
                that AI should serve that knowledge, not replace it.
             </p>
 
             <div class="mt-10 flex flex-col sm:flex-row gap-4">
                <a href="mailto:hello@codicent.com"
-                  class="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold shadow-lg shadow-accent/40 hover:shadow-xl hover:-translate-y-0.5 transition">Get
+                  class="inline-flex items-center justify-center rounded-none bg-accent px-8 py-3 text-base font-medium text-onaccent hover:bg-[var(--cc-accent-2)] transition">Get
                   in touch</a>
                <a href="https://codicent.com"
-                  class="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-3 text-base font-semibold text-white hover:bg-white/10 transition">Visit
+                  class="inline-flex items-center justify-center rounded-none border-2 border-ink px-8 py-3 text-base font-medium text-ink hover:bg-[rgba(var(--cc-ink-rgb),.05)] transition">Visit
                   codicent.com</a>
             </div>
 
@@ -152,7 +198,7 @@
       </main>
 
       <!-- FOOTER -->
-      <footer class="max-w-5xl w-full mx-auto px-6 py-10 text-xs text-slate-500 flex items-center justify-between">
+      <footer class="max-w-5xl w-full mx-auto px-6 py-10 text-xs text-mute flex items-center justify-between">
          <span>© Codicent Inside AB</span>
          <span>Made with care in Sweden</span>
       </footer>
