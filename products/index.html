@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="color-scheme" content="light dark" />
+   <meta name="theme-color" content="#FFFFFF" />
+   <title>Codicent — What we build</title>
+   <meta name="description"
+      content="The public Codicent sites in one place: Logbook, M3 MCP, Dynamics CRM MCP, CRM AI, Web Components and the Codicent platform." />
+   <link rel="canonical" href="https://codicent.ai/products/" />
+   <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+         theme: {
+            extend: {
+               colors: {
+                  codicent: "var(--cc-surface)",
+                  accent: "var(--cc-accent)",
+                  gold: "var(--cc-muted)",
+                  midnight: "var(--cc-canvas)",
+                  dusk: "var(--cc-surface)",
+                  ink: "var(--cc-ink)",
+                  ink2: "var(--cc-ink-2)",
+                  mute: "var(--cc-muted)",
+                  brand: "var(--cc-brand)",
+                  onaccent: "var(--cc-on-accent)",
+               },
+               fontFamily: {
+                  display: ['Geist', "Inter", "system-ui", "sans-serif"],
+                  body: ['Geist', "Inter", "system-ui", "sans-serif"],
+                  mono: ['"Geist Mono"', "ui-monospace", "monospace"],
+               },
+            },
+         },
+      };
+   </script>
+   <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet" />
+   <style>
+      body {
+         font-family: var(--cc-font);
+         background: var(--cc-canvas);
+         color: var(--cc-ink);
+         min-height: 100vh;
+      }
+
+      /* @codicent-web-tokens:start */
+      :root{
+        --cc-canvas:#FFFFFF;          /* page ground */
+        --cc-surface:#F4F6F8;         /* tiles, code panels, strips */
+        --cc-surface-2:#E9EDF1;       /* raised / hover surface */
+        --cc-ink:#0A0A0A;             /* primary text, headlines */
+        --cc-ink-2:#3D3D3D;           /* secondary text */
+        --cc-muted:#737373;           /* captions, labels */
+        --cc-dim:#A3A3A3;             /* hairline text, disabled */
+        --cc-line:rgba(0,0,0,.08);    /* rules, table lines */
+        --cc-hairline:rgba(0,0,0,.05);
+        --cc-accent:#0178D4;          /* Codicent blue — primary button, headline highlight, active state */
+        --cc-accent-2:#0196FA;        /* hover / bright */
+        --cc-accent-soft:rgba(1,120,212,.08);
+        --cc-brand:#0196FA;           /* the logo mark, always */
+        --cc-link:#0178D4;            /* text links */
+        --cc-on-accent:#FFFFFF;       /* text on a blue tile */
+        --cc-ink-rgb:10,10,10;        /* for overlays authored as rgba(var(--cc-ink-rgb),.1) */
+        --cc-canvas-rgb:255,255,255;
+        --cc-glow:none;               /* no gradients, no glows */
+        --cc-font:Geist,Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+        --cc-mono:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+        --cc-radius:0px;              /* square means Codicent */
+        --cc-radius-sm:0px;
+        --cc-measure:1160px;
+        --cc-shadow:none;
+        color-scheme:light dark;
+      }
+      @media (prefers-color-scheme:dark){
+        :root{
+          --cc-canvas:#000000;
+          --cc-surface:#111111;
+          --cc-surface-2:#1C1C1C;
+          --cc-ink:#F5F5F5;
+          --cc-ink-2:#BDBDBD;
+          --cc-muted:#8A8A8A;
+          --cc-dim:#5A5A5A;
+          --cc-line:rgba(255,255,255,.12);
+          --cc-hairline:rgba(255,255,255,.07);
+          --cc-accent:#0196FA;
+          --cc-accent-2:#4DB1FF;
+          --cc-accent-soft:rgba(1,150,250,.16);
+          --cc-link:#4DB1FF;
+          --cc-ink-rgb:245,245,245;
+          --cc-canvas-rgb:0,0,0;
+        }
+      }
+      /* @codicent-web-tokens:end */
+
+      .text-link { color: var(--cc-link); }
+   </style>
+</head>
+
+<body class="bg-midnight text-ink">
+
+   <div class="relative min-h-screen flex flex-col">
+
+      <!-- NAV -->
+      <header class="max-w-5xl w-full mx-auto px-6 pt-10">
+         <nav class="flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+               <div class="w-11 h-11 flex items-center justify-center text-brand"><svg viewBox="0 0 43 43" width="26" height="26" aria-hidden="true" fill="currentColor"><path d="M14.3333 38.2227H4.77778V43.0004H14.3333V38.2227Z"/><path d="M38.2222 0H28.6667V4.77778H38.2222V0Z"/><path d="M38.2222 19.1113H28.6667V23.8891H38.2222V19.1113Z"/><path d="M14.3333 19.1113H4.77778V23.8891H14.3333V19.1113Z"/><path d="M4.77778 23.8887H0V38.222H4.77778V23.8887Z"/><path d="M43 4.77783H38.2222V19.1112H43V4.77783Z"/><path d="M23.8889 19.1113H19.1111V33.4447H23.8889V19.1113Z"/><path d="M23.8889 9.55566H19.1111V14.3334H23.8889V9.55566Z"/></svg></div>
+               <div>
+                  <p class="text-[12px] lowercase tracking-normal text-mute">Codicent</p>
+                  <p class="text-base font-medium">codicent.ai</p>
+               </div>
+            </a>
+            <a href="mailto:hello@codicent.com"
+               class="inline-flex px-5 py-2 rounded-none bg-accent text-onaccent text-sm font-medium hover:bg-[var(--cc-accent-2)] transition">Talk
+               to us</a>
+         </nav>
+      </header>
+
+      <!-- MAIN -->
+      <main class="flex-1">
+         <div class="max-w-3xl mx-auto px-6 py-20 md:py-24">
+
+            <span
+               class="inline-flex items-center gap-2 rounded-none border border-[rgba(var(--cc-ink-rgb),.10)] bg-[rgba(var(--cc-ink-rgb),.05)] px-4 py-1 text-[13px] lowercase tracking-normal text-mute">What we build</span>
+
+            <h1 class="mt-6 text-4xl md:text-5xl font-display font-medium leading-[1.05] tracking-tight text-ink">
+               One memory, <span class="text-accent">many doors</span>.
+            </h1>
+
+            <p class="mt-6 text-lg text-ink2 leading-relaxed max-w-2xl">
+               Codicent shows up in a few different shapes: a platform, an AI colleague for CRM and ERP,
+               and small open tools you can run yourself. These are the public ones.
+            </p>
+
+            <div class="mt-14">
+            <a href="https://logbook.codicent.ai/" class="group block py-7 border-t border-[var(--cc-line)] first:border-t-0 sm:grid sm:grid-cols-[13rem_1fr] sm:gap-10 hover:bg-[var(--cc-accent-soft)] -mx-4 px-4 transition">
+               <div>
+                  <p class="text-[13px] lowercase tracking-normal text-mute">open source · install in one line</p>
+                  <p class="mt-1 font-mono text-[13px] text-link group-hover:underline">logbook.codicent.ai</p>
+               </div>
+               <div class="mt-3 sm:mt-0">
+                  <p class="text-lg font-medium text-ink">Codicent Logbook</p>
+                  <p class="mt-1 text-base text-ink2 leading-relaxed">A standalone, zero-dependency logbook runtime in one executable. SQLite storage, MCP server, REST API and file inbox. Works with Claude Desktop, Cursor and any MCP client.</p>
+               </div>
+            </a>
+            <a href="https://m3.codicent.ai/" class="group block py-7 border-t border-[var(--cc-line)] first:border-t-0 sm:grid sm:grid-cols-[13rem_1fr] sm:gap-10 hover:bg-[var(--cc-accent-soft)] -mx-4 px-4 transition">
+               <div>
+                  <p class="text-[13px] lowercase tracking-normal text-mute">docker image · infor m3</p>
+                  <p class="mt-1 font-mono text-[13px] text-link group-hover:underline">m3.codicent.ai</p>
+               </div>
+               <div class="mt-3 sm:mt-0">
+                  <p class="text-lg font-medium text-ink">Codicent M3 MCP</p>
+                  <p class="mt-1 text-base text-ink2 leading-relaxed">Governed, read-oriented AI access to live Infor M3 business data. Ships as a Docker image; your AI assistant answers from the ERP instead of guessing.</p>
+               </div>
+            </a>
+            <a href="https://dynamics.codicent.ai/" class="group block py-7 border-t border-[var(--cc-line)] first:border-t-0 sm:grid sm:grid-cols-[13rem_1fr] sm:gap-10 hover:bg-[var(--cc-accent-soft)] -mx-4 px-4 transition">
+               <div>
+                  <p class="text-[13px] lowercase tracking-normal text-mute">mcp server · dynamics 365</p>
+                  <p class="mt-1 font-mono text-[13px] text-link group-hover:underline">dynamics.codicent.ai</p>
+               </div>
+               <div class="mt-3 sm:mt-0">
+                  <p class="text-lg font-medium text-ink">Codicent Dynamics CRM MCP</p>
+                  <p class="mt-1 text-base text-ink2 leading-relaxed">Gives approved AI assistants governed access to Microsoft Dynamics 365 CRM context. Practical sales and customer workflows, private implementation.</p>
+               </div>
+            </a>
+            <a href="https://crm.codicent.ai/" class="group block py-7 border-t border-[var(--cc-line)] first:border-t-0 sm:grid sm:grid-cols-[13rem_1fr] sm:gap-10 hover:bg-[var(--cc-accent-soft)] -mx-4 px-4 transition">
+               <div>
+                  <p class="text-[13px] lowercase tracking-normal text-mute">application · sales and service</p>
+                  <p class="mt-1 font-mono text-[13px] text-link group-hover:underline">crm.codicent.ai</p>
+               </div>
+               <div class="mt-3 sm:mt-0">
+                  <p class="text-lg font-medium text-ink">Codicent CRM AI</p>
+                  <p class="mt-1 text-base text-ink2 leading-relaxed">A concrete CRM with customer cards, activities, contacts, offers, service cases and documents, with AI support in the same customer context.</p>
+               </div>
+            </a>
+            <a href="https://components.codicent.ai/" class="group block py-7 border-t border-[var(--cc-line)] first:border-t-0 sm:grid sm:grid-cols-[13rem_1fr] sm:gap-10 hover:bg-[var(--cc-accent-soft)] -mx-4 px-4 transition">
+               <div>
+                  <p class="text-[13px] lowercase tracking-normal text-mute">library · open on the web</p>
+                  <p class="mt-1 font-mono text-[13px] text-link group-hover:underline">components.codicent.ai</p>
+               </div>
+               <div class="mt-3 sm:mt-0">
+                  <p class="text-lg font-medium text-ink">Codicent Web Components</p>
+                  <p class="mt-1 text-base text-ink2 leading-relaxed">A standards-based web component library for AI-generated UI. One script tag wires up authentication, live data and 25+ drop-in elements.</p>
+               </div>
+            </a>
+            <a href="https://codicent.com/" class="group block py-7 border-t border-[var(--cc-line)] first:border-t-0 sm:grid sm:grid-cols-[13rem_1fr] sm:gap-10 hover:bg-[var(--cc-accent-soft)] -mx-4 px-4 transition">
+               <div>
+                  <p class="text-[13px] lowercase tracking-normal text-mute">platform · sign in</p>
+                  <p class="mt-1 font-mono text-[13px] text-link group-hover:underline">codicent.com</p>
+               </div>
+               <div class="mt-3 sm:mt-0">
+                  <p class="text-lg font-medium text-ink">Codicent platform</p>
+                  <p class="mt-1 text-base text-ink2 leading-relaxed">The platform itself: the living place where messages, data and AI flows live. Everything above runs on it or talks to it.</p>
+               </div>
+            </a>
+            </div>
+
+            <p class="mt-14 text-base text-mute">
+               Missing something, or want a door of your own?
+               <a href="mailto:hello@codicent.com" class="text-link hover:underline">hello@codicent.com</a>
+            </p>
+
+         </div>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="max-w-5xl w-full mx-auto px-6 py-10 text-xs text-mute flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+         <span>© Codicent Inside AB</span>
+         <span class="flex items-center gap-6"><a href="https://www.linkedin.com/company/codicent/" class="hover:text-ink transition" rel="noopener">linkedin</a><span>Made with care in Sweden</span></span>
+      </footer>
+
+   </div>
+
+</body>
+
+</html>
